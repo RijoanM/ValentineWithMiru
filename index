@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valentine 💕</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #f6c1d1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: #f9f9f9;
+      width: 700px;
+      min-height: 700px;
+      padding: 40px 30px 50px;
+      border-radius: 30px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+    }
+
+    .cat {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 50px;
+      color: #222;
+    }
+
+    .buttons {
+      position: relative;
+      height: 160px;
+    }
+
+    button {
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 20px 55px;
+      border-radius: 999px;
+      position: absolute;
+    }
+
+    #yes {
+      background: #e91e63;
+      color: white;
+      left: 100px;
+      top: 50px;
+    }
+
+    #no {
+      background: #e0e0e0;
+      color: #333;
+      right: 100px;
+      top: 55px;
+    }
+
+    .note {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="cat">🐱💗</div>
+
+    <h1>miru will you be my valentine?</h1>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">Yes</button>
+      <button id="no">No</button>
+    </div>
+
+    <div class="note">“No” seems a bit shy 😈</div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const card = document.querySelector(".card");
+
+      const maxX = card.offsetWidth - noBtn.offsetWidth - 20;
+      const maxY = card.offsetHeight - noBtn.offsetHeight - 100;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          background:#f6c1d1;
+          font-family:Arial;
+          text-align:center;
+        ">
+          <div>
+            <h1 style="font-size:48px;">YAY! 🎉💖</h1>
+            <p style="font-size:22px;">Best decision ever 😌</p>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
